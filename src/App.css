@@ -1,22 +1,78 @@
-.App {
-  text-align: center;
+#background {
+    align-content: center; 
+    position: fixed; 
+    height: 100%;
+    width: 100%;
+    background-image: url("https://miro.medium.com/max/1306/1*7cp_6xnOq1lmBXP4Oo_Ltg.png");    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5;  
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+.pokemon-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color:black;
 }
 
-.App-link {
-  color: #09d3ac;
+#army-submission-container{
+  top: 2vh;
+  width: 100%;
+  position: absolute;
 }
+
+#army-submission-fields{
+  width: 30%;
+}
+
+.pokemon-army{
+  position: absolute;
+  top: 7vh;
+  height:38vh;
+  width:100%;
+  border-bottom: 2px solid white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#searchbar{
+  top: 45vh;
+  width: 100%;
+  position: absolute;
+}
+/* #army-submission-fields{
+  top: 0;
+} */
+
+.pokemon-container{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  height:45vh;
+  width:100%;
+}
+
+.pokemon-div{
+  border: 2px solid black;
+  height: 35vh;
+  width: 25vh;
+  margin: 10px;
+  text-align: center;
+}
+
+.searchbar {
+  z-index:1;
+}
+/* .pokemon-image {
+border-radius: 50%;
+border: 2px solid white;
+margin:4px;
+} */
