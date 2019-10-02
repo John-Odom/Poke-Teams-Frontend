@@ -3,6 +3,8 @@ import PokemonContainer from '../containers/PokemonContainer'
 import PokemonArmy from '../containers/PokemonArmy'
 import { Search } from 'semantic-ui-react'
 import AddArmyToDatabaseForm from '../cards/AddArmyToDatabaseForm'
+
+
 export default class PokemonPage extends React.Component{
     
     

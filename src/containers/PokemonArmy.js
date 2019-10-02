@@ -2,10 +2,8 @@ import React from 'react'
 import Pokemon from '../cards/Pokemon'
 
 
-export default class PokemonArmy extends React.Component {
-    state={   
 
-    }
+export default class PokemonArmy extends React.Component {
 
     render () {
     return (
