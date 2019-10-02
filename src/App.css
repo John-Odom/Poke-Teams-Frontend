@@ -87,3 +87,23 @@
   display: inline-block;
   width: 400px; height: 400px;
 }
+
+#teams-page{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  height:95vh;
+  width:100%;
+  z-index:2;
+  font-size: calc(10px + 2vmin);
+  color:black;
+}
+
+.poketeams{
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+}

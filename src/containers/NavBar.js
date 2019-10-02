@@ -16,7 +16,7 @@ class Navbar extends React.Component {
     return (
       <div id="navbar" class="ui form">
         <NavLink 
-          to="/"
+          to="/teams"
           /* set exact so it knows to only set activeStyle when route is deeply equal to link */
           exact
           /* add styling to Navlink */
@@ -25,7 +25,7 @@ class Navbar extends React.Component {
           activeStyle={{
             background: 'darkblue'
           }}
-        >Home</NavLink>
+        >Teams</NavLink>
         <NavLink
           to="/teams/new"
           exact

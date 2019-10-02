@@ -4,6 +4,7 @@ import './App.css';
 import PokemonPage from "./pages/PokemonPage"
 import Login from './pages/Login'
 import {Route} from 'react-router-dom'
+import TeamPage from "./pages/TeamPage"
 
 class App extends React.Component{
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component{
         <header className="App-header">
           < Route exact path="/teams/new" component={PokemonPage} />
           < Route exact path="/login" component={Login} />
+          < Route exact path="/teams" component={TeamPage} />
         </header>
       </div>
     );
