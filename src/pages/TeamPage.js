@@ -17,18 +17,13 @@ export default class TeamPage extends React.Component{
         .then(teams=> this.setState({teamsList: teams}))
     }
 
-    showPokemon = (pokemon) => {
-        console.log(pokemon)
-    }
-
     render(){
-        // console.log(this.state.teamsList)
         return(
         <div>
             <Navbar />
             <div id="teams-page">
                 {this.state.teamsList.map(team => {
-                    return < PokemonTeam showPokemon={this.showPokemon} team={team} />
+                    return < PokemonTeam team={team} />
                 })}
             </div>
         </div>
