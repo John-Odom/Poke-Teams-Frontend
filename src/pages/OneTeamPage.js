@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {fetchArmy} from '../actions/fetches'
 import chosenArmy from '../actions/chosenArmy'
-import pokeTeam from '../containers/PokemonTeam'
+import PokemonTeam from '../containers/PokemonTeam'
 import Navbar from '../containers/NavBar'
 
 
@@ -16,12 +16,16 @@ class OneTeamPage extends Component {
          })
       }
     render() {
-        console.log(pokeTeam)
+        
         if(this.props.army){
+            console.log('army', this.props.army)
             return (
                 <div>
                     <Navbar />
-                    <p>{this.props.army.name}</p>
+                    <h1>Click on Pokemon to open a new page with their information</h1>
+                    <div id="teams-page">
+                    < PokemonTeam team={this.props.army} />
+                    </div>
                 </div>
                 
             );
