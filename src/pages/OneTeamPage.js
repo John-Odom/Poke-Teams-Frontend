@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {fetchArmy} from '../actions/fetches'
 import chosenArmy from '../actions/chosenArmy'
+import pokeTeam from '../containers/PokemonTeam'
+import Navbar from '../containers/NavBar'
 
 
 class OneTeamPage extends Component {
@@ -14,10 +16,24 @@ class OneTeamPage extends Component {
          })
       }
     render() {
-        return (
-        <p>in page</p>
-        );
+        console.log(pokeTeam)
+        if(this.props.army){
+            return (
+                <div>
+                    <Navbar />
+                    <p>{this.props.army.name}</p>
+                </div>
+                
+            );
+        } else return null
+
     }
 }
 
-export default connect(null,{chosenArmy})(OneTeamPage);
+const mapStatetoProps = state => {
+    return ({
+      army: state.chosenArmy
+    })
+ }
+
+export default connect(mapStatetoProps,{chosenArmy})(OneTeamPage);
