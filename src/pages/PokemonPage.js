@@ -7,6 +7,8 @@ import NavBar from '../containers/NavBar'
 import {connect} from 'react-redux'
 import fetchPokemons from '../actions/FetchPokemons'
 import clearArmy from '../actions/ClearArmy'
+import search from '../actions/Search'
+
 
 
 class PokemonPage extends React.Component{
@@ -14,7 +16,7 @@ class PokemonPage extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            search:"",
+            // search:"",
             armyName:""
         }
     } 
@@ -61,18 +63,20 @@ class PokemonPage extends React.Component{
     }
 
     clearPage = () =>{
-        this.setState({ armyName:"", search:""})
+        this.setState({ armyName:""})
         this.props.clearArmy()
+        this.props.search("")
     }
 
     getSearchValue = (value) => {
-        this.setState({search: value})
+        // this.setState({search: value})
+        this.props.search(value)
         this.filterPokemon()
     }
 
     filterPokemon = () => {
         let filteredPokemon = this.props.pokemons.filter (pokemon => {
-            return pokemon.name.startsWith(this.state.search.toLowerCase())
+            return pokemon.name.startsWith(this.props.searchBar.toLowerCase())
         })
         return filteredPokemon
     }
@@ -82,16 +86,23 @@ class PokemonPage extends React.Component{
     }
 
     callList = () => {
-        return this.state.search ? this.filterPokemon() : this.props.pokemons 
+        return this.props.searchBar ? this.filterPokemon() : this.props.pokemons 
     }
 
     render(){
         return(
             <div className="pokemon-page">
-                <AddArmyToDatabaseForm handleArmySubmit={this.handleArmySubmit} changeArmyName={this.changeArmyName} armyName={this.state.armyName}/>
-                <PokemonArmy addToArmy={this.removeFromArmy} pokemonArmy={this.props.pokemonArmy}/>
-                <Search onSearchChange={(e)=>this.getSearchValue(e.target.value)} showNoResults={false} value={this.state.search} className="searchbar"/>
+
+                <AddArmyToDatabaseForm handleArmySubmit={this.handleArmySubmit} 
+                changeArmyName={this.changeArmyName} armyName={this.state.armyName}/>
+
+                <PokemonArmy />
+
+                <Search onSearchChange={(e)=>this.getSearchValue(e.target.value)} 
+                showNoResults={false} value={this.props.searchBar} className="searchbar"/>
+
                 <PokemonContainer pokemonList={this.callList()}/>
+                
                 <NavBar />
             </div>
         )
@@ -105,6 +116,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         clearArmy: () => {
             dispatch(clearArmy())
+        },
+        search: (value) => {
+            dispatch(search(value))
         }
     })
 }
@@ -112,7 +126,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         pokemons: state.pokemons,
-        pokemonArmy: state.pokemonArmy
+        pokemonArmy: state.pokemonArmy,
+        searchBar: state.search
     }
 }
 

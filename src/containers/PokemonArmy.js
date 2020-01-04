@@ -1,16 +1,24 @@
 import React from 'react'
 import Pokemon from '../cards/Pokemon'
+import {connect} from 'react-redux'
 
 
-
-export default class PokemonArmy extends React.Component {
+class PokemonArmy extends React.Component {
 
     render () {
     return (
             <div className="pokemon-army">
             {this.props.pokemonArmy.map( pokemon => {
-                return <Pokemon addToArmy={this.props.addToArmy} pokemon={pokemon}/>
+                return <Pokemon pokemon={pokemon}/>
             })} 
             </div>
     )
 }}
+
+const mapStateToProps = (state) => {
+    return {
+        pokemonArmy: state.pokemonArmy
+    }
+}
+
+export default connect(mapStateToProps,null)(PokemonArmy)
