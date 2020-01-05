@@ -14,10 +14,10 @@ class App extends React.Component{
       <div className="App">
         <header className="App-header">
           < Route exact path="/" component={Home} />
-          < Route exact path="/teams/new" component={PokemonPage} />
+          < Route exact path="/team/new" component={PokemonPage} />
           < Route exact path="/login" component={Login} />
-          < Route exact path="/teams" component={TeamPage} />
           < Route exact path="/teams/:id" component={OneTeamPage} />
+          < Route exact path="/teams" component={TeamPage} />
 
         </header>
       </div>

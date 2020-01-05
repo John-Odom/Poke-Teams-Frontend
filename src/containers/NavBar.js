@@ -37,7 +37,7 @@ class Navbar extends React.Component {
           }}
         >Teams</NavLink>
         <NavLink
-          to="/teams/new"
+          to="/team/new"
           exact
           style={link}
           activeStyle={{

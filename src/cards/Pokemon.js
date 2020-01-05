@@ -23,8 +23,9 @@ class Pokemon extends React.Component{
     }
 
     render() {
+        // console.log(this.props.pokemon.name)
     return (
-        <div className="pokemon-div" onClick={() => {this.handlePokemonClick(this.props.pokemon)}}>
+        <div className="pokemon-div" data-name={this.props.pokemon.name} onClick={() => {this.handlePokemonClick(this.props.pokemon)}}>
             <img className="pokemon-image" src={this.props.pokemon.image} alt=""/>
             <p>{this.props.pokemon.name}</p>
             <p>experience: {this.props.pokemon.experience}</p>

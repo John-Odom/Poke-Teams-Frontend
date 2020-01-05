@@ -20,7 +20,7 @@ class Home extends React.Component{
             <Link to="teams">See our teams!</Link>
             </div>
             <div>
-            <Link to="teams/new">Make a new Team!</Link>
+            <Link to="team/new">Make a new Team!</Link>
             </div>
             </div>
         </div>
