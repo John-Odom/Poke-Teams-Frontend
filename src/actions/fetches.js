@@ -1,4 +1,4 @@
-const LOCAL = 'http://localhost:3000'
+import {DATABASE} from '../SiteURLs'
 export const fetchArmy = (teamId) =>{
-    return fetch(LOCAL + '/teams/' + teamId).then(res=>res.json())
+    return fetch(DATABASE + 'teams/' + teamId).then(res=>res.json())
 }

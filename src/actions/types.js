@@ -4,3 +4,4 @@ export const REMOVE_FROM_ARMY = "REMOVE_FROM_ARMY"
 export const CLEAR_ARMY = "CLEAR_ARMY"
 export const SEARCH = "SEARCH"
 export const CHOSEN_ARMY = "CHOSEN_ARMY"
+

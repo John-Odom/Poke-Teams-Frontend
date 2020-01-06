@@ -1,7 +1,6 @@
 import React from 'react'
 import Pokemon from '../cards/Pokemon'
-
-
+import {SITEURL} from '../SiteURLs'
 
 export default class PokemonTeam extends React.Component {
 
@@ -10,7 +9,8 @@ export default class PokemonTeam extends React.Component {
             return (
                 <div className="team-army">
                     <br />
-                    <h3>{this.props.team.name} <a className="top-tag" href="#navbar">Back to top of page</a></h3>
+                    <h3><a href={SITEURL + 'teams/' + this.props.team.id}>{this.props.team.name}</a> 
+                    <a className="top-tag" href="#navbar">Back to top of page</a></h3>
                     <div className="poketeams">
                     {this.props.team.pokemons.map( pokemon => {
                         return (

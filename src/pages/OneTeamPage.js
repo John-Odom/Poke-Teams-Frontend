@@ -9,7 +9,6 @@ import Navbar from '../containers/NavBar'
 class OneTeamPage extends Component {
     componentDidMount () {
         const armyId = this.props.match.params.id
-        console.log(armyId)
         fetchArmy(armyId)
         .then((army) => {
             this.props.chosenArmy(army)
@@ -18,7 +17,6 @@ class OneTeamPage extends Component {
     render() {
         
         if(this.props.army){
-            console.log('army', this.props.army)
             return (
                 <div>
                     <Navbar />

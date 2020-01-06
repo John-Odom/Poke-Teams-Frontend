@@ -1,18 +1,15 @@
 import React from 'react'
 import PokemonTeam from '../containers/PokemonTeam'
 import Navbar from '../containers/NavBar'
-
-
+import {DATABASE} from '../SiteURLs'
 
 export default class TeamPage extends React.Component{
-    
-    
     state={
         teamsList:[]
     }
 
     componentDidMount = () => {
-        fetch("http://localhost:3000/teams")
+        fetch(DATABASE + "teams")
         .then(res=>res.json())
         .then(teams=> this.setState({teamsList: teams}))
     }

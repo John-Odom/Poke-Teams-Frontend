@@ -8,21 +8,15 @@ import {connect} from 'react-redux'
 import fetchPokemons from '../actions/FetchPokemons'
 import clearArmy from '../actions/ClearArmy'
 import search from '../actions/Search'
-
-
+import {DATABASE} from '../SiteURLs'
 
 class PokemonPage extends React.Component{
-    
-    constructor(props){
-        super(props)
-        this.state={
-            // search:"",
-            armyName:""
-        }
-    } 
+    state={
+        armyName:""
+    }
 
     componentDidMount = () => {
-        fetch("http://localhost:3000/pokemons")
+        fetch(DATABASE + "pokemons")
         .then(res=>res.json())
         .then(pokemons => {
             this.props.fetchPokemon(pokemons)
@@ -54,7 +48,7 @@ class PokemonPage extends React.Component{
             headers:{"Content-Type" : "application/json"},
             body: JSON.stringify (formData)
         }
-        fetch("http://localhost:3000/teams", reqObj)
+        fetch(DATABASE + "teams", reqObj)
         .then(res=>res.json())
         .then(team => {
             alert(`You saved "${team.name}" to the database`)
@@ -92,17 +86,12 @@ class PokemonPage extends React.Component{
     render(){
         return(
             <div className="pokemon-page">
-
                 <AddArmyToDatabaseForm handleArmySubmit={this.handleArmySubmit} 
                 changeArmyName={this.changeArmyName} armyName={this.state.armyName}/>
-
                 <PokemonArmy />
-
                 <Search onSearchChange={(e)=>this.getSearchValue(e.target.value)} 
                 showNoResults={false} value={this.props.searchBar} className="searchbar"/>
-
                 <PokemonContainer pokemonList={this.callList()}/>
-                
                 <NavBar />
             </div>
         )

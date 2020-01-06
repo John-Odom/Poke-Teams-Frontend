@@ -2,7 +2,7 @@ import React from 'react'
 import addToArmy from '../actions/AddToArmy'
 import removeFromArmy from '../actions/RemoveFromArmy'
 import {connect} from 'react-redux'
-
+import {SITEURL} from '../SiteURLs'
 
 class Pokemon extends React.Component{
 
@@ -16,8 +16,8 @@ class Pokemon extends React.Component{
 
     handlePokemonClick = (pokemon) => {
         if(
-            window.location.href.includes('http://localhost:3001/teams') || 
-            window.location.href.includes('https://localhost:3001/teams')
+            window.location.href.includes(SITEURL + 'teams') || 
+            window.location.href.includes(SITEURL + 'teams')
             ){
             window.open(`https://pokemondb.net/pokedex/${pokemon.name}/`, '_blank')
         }
