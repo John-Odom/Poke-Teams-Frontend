@@ -23,7 +23,7 @@ export default class TeamPage extends React.Component{
             <Navbar />
             <div id="teams-page">
                 {this.state.teamsList.map(team => {
-                    return < PokemonTeam team={team} />
+                    return < PokemonTeam key={team.id} team={team} />
                 })}
             </div>
         </div>
