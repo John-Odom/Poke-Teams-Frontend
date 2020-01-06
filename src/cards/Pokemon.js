@@ -15,15 +15,22 @@ class Pokemon extends React.Component{
     }
 
     handlePokemonClick = (pokemon) => {
-        if(this.props.pokemonArmy.includes(pokemon)) {
-            this.props.removeFromArmy(pokemon)
-        } else { 
-            this.addToArmy(pokemon)
+        if(
+            window.location.href.includes('http://localhost:3001/teams') || 
+            window.location.href.includes('https://localhost:3001/teams')
+            ){
+            window.open(`https://pokemondb.net/pokedex/${pokemon.name}/`, '_blank')
+        }
+        else{
+            if(this.props.pokemonArmy.includes(pokemon)) {
+                this.props.removeFromArmy(pokemon)
+            } else { 
+                this.addToArmy(pokemon)
+            }
         }
     }
 
     render() {
-        // console.log(this.props.pokemon.name)
     return (
         <div className="pokemon-div" data-name={this.props.pokemon.name} onClick={() => {this.handlePokemonClick(this.props.pokemon)}}>
             <img className="pokemon-image" src={this.props.pokemon.image} alt=""/>
