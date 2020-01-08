@@ -5,10 +5,12 @@ import { Search } from 'semantic-ui-react'
 import AddArmyToDatabaseForm from '../cards/AddArmyToDatabaseForm'
 import NavBar from '../containers/NavBar'
 import {connect} from 'react-redux'
-import fetchPokemons from '../actions/FetchPokemons'
+import setPokemons from '../actions/setPokemons'
 import clearArmy from '../actions/ClearArmy'
 import search from '../actions/Search'
-import {DATABASE} from '../SiteURLs'
+import {getPokemon, postArmyToDB} from '../actions/fetches'
+import {withRouter} from 'react-router-dom'
+import {TEAMSPAGE} from '../routePaths'
 
 class PokemonPage extends React.Component{
     state={
@@ -16,11 +18,7 @@ class PokemonPage extends React.Component{
     }
 
     componentDidMount = () => {
-        fetch(DATABASE + "pokemons")
-        .then(res=>res.json())
-        .then(pokemons => {
-            this.props.fetchPokemon(pokemons)
-        })
+        getPokemon().then(pokemons => this.props.setPokemon(pokemons))
     }
 
     changeArmyName = (value) => {
@@ -29,31 +27,11 @@ class PokemonPage extends React.Component{
 
     handleArmySubmit = () =>{
         if(this.props.pokemonArmy.length===6 && this.state.armyName!==""){
-        this.postArmyToDB()
-        } else if (this.props.pokemonArmy.length===6){
-            alert("you need a name dog")
-        } else {
-            alert("gotta have six mainnnn")
-        }
-    }
-
-    postArmyToDB = () => {
-        const formData={
-            name: this.state.armyName,
-            user_id: 0,
-            pokemons:this.props.pokemonArmy
-        }
-        const reqObj={
-            method:"POST",
-            headers:{"Content-Type" : "application/json"},
-            body: JSON.stringify (formData)
-        }
-        fetch(DATABASE + "teams", reqObj)
-        .then(res=>res.json())
-        .then(team => {
-            alert(`You saved "${team.name}" to the database`)
+            postArmyToDB(this.state.armyName, this.props.pokemonArmy)
             this.clearPage()
-        })
+            this.props.history.push(TEAMSPAGE)
+        } else if (this.props.pokemonArmy.length===6) alert("you need a name dog")
+          else alert("gotta have six mainnnn")
     }
 
     clearPage = () =>{
@@ -63,7 +41,6 @@ class PokemonPage extends React.Component{
     }
 
     getSearchValue = (value) => {
-        // this.setState({search: value})
         this.props.search(value)
         this.filterPokemon()
     }
@@ -100,8 +77,8 @@ class PokemonPage extends React.Component{
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        fetchPokemon: (pokemons)=>{
-            dispatch(fetchPokemons(pokemons))
+        setPokemon: (pokemons)=>{
+            dispatch(setPokemons(pokemons))
         },
         clearArmy: () => {
             dispatch(clearArmy())
@@ -120,7 +97,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-    )(PokemonPage)
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(PokemonPage));

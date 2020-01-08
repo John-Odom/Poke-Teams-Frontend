@@ -7,6 +7,7 @@ import Navbar from '../containers/NavBar'
 
 
 class OneTeamPage extends Component {
+
     componentDidMount () {
         const armyId = this.props.match.params.id
         fetchArmy(armyId)
@@ -14,6 +15,7 @@ class OneTeamPage extends Component {
             this.props.chosenArmy(army)
          })
       }
+      
     render() {
         
         if(this.props.army){

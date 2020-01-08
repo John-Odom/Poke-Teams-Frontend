@@ -1,7 +1,7 @@
 import React from 'react'
 import PokemonTeam from '../containers/PokemonTeam'
 import Navbar from '../containers/NavBar'
-import {DATABASE} from '../SiteURLs'
+import {fetchArmies} from '../actions/fetches'
 
 export default class TeamPage extends React.Component{
     state={
@@ -9,9 +9,7 @@ export default class TeamPage extends React.Component{
     }
 
     componentDidMount = () => {
-        fetch(DATABASE + "teams")
-        .then(res=>res.json())
-        .then(teams=> this.setState({teamsList: teams}))
+        fetchArmies().then(teams=> this.setState({teamsList: teams}))
     }
 
     render(){

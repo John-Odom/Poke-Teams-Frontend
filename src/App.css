@@ -148,3 +148,11 @@
   right: 6%;
   color: red;
 }
+.nav-link{
+  width: 100px;
+  padding: 12px;
+  margin: 0 6px 6px;
+  background: blue;
+  color: white;
+  background-color: darkblue;
+}

@@ -6,6 +6,7 @@ import {Route} from 'react-router-dom'
 import TeamPage from "./pages/TeamPage"
 import OneTeamPage from "./pages/OneTeamPage"
 import Home from "./pages/Home"
+import {POKEMONPAGE, TEAMPAGE, TEAMSPAGE, LOGINPAGE, HOMEPAGE} from './routePaths'
 
 
 class App extends React.Component{
@@ -13,12 +14,11 @@ class App extends React.Component{
     return (
       <div className="App">
         <header className="App-header">
-          < Route exact path="/" component={Home} />
-          < Route exact path="/team/new" component={PokemonPage} />
-          < Route exact path="/login" component={Login} />
-          < Route exact path="/teams/:id" component={OneTeamPage} />
-          < Route exact path="/teams" component={TeamPage} />
-
+          < Route exact path={HOMEPAGE} component={Home} />
+          < Route exact path={POKEMONPAGE} component={PokemonPage} />
+          < Route exact path={LOGINPAGE} component={Login} />
+          < Route exact path={TEAMPAGE} component={OneTeamPage} />
+          < Route exact path={TEAMSPAGE} component={TeamPage} />
         </header>
       </div>
     );

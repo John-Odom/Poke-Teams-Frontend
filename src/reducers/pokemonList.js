@@ -1,8 +1,8 @@
-import { FETCH_POKEMON } from "../actions/types"
+import { SET_POKEMON } from "../actions/types"
 
 export default function pokemonList (state = [], action) {
     switch (action.type) {
-      case FETCH_POKEMON:
+      case SET_POKEMON:
         return(
           state.concat(action.pokemons)
         )
