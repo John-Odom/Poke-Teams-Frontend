@@ -81,8 +81,7 @@
   width: 1000px;
   height: 1000px;
   vertical-align: middle;
-  text-align: center;
-      
+  text-align: center;   
 }
 
 #login-form{
@@ -122,19 +121,25 @@
                0 3px 5px rgba(0,0,0,.2),
                0 5px 10px rgba(0,0,0,.25),
                0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
-  font-size: 100px;
+               0 15px 20px rgba(0,0,0,.15);
+  font-size: 65px;
   opacity: .8;
 }
 
-#home_page{
- height: 100%;
- width: 100%;
+#home-page{
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.gsap-div{
+  top: 0;
+  height: 30vh;
 }
 
 #welcome-div{
     width:40%;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
 }
 
@@ -157,3 +162,63 @@
   color: white;
   background-color: darkblue;
 }
+#home-page-link-options{
+  display: flex;
+  width: 20%;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.gsap-div {
+  top:5%;
+  position: absolute;
+  height: 30%;
+  width: 100%;
+}
+
+  .gsap-closed {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height:60%;
+  }
+
+  .gsap-opened{
+    height:10%;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .gsap-opened h1 a {
+    text-decoration: none;
+    color: black;
+    text-shadow: 0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 15px 20px rgba(0,0,0,.15);
+    font-size: 120px;
+    border: 3px solid black;
+    border-radius: 25%;
+    background: white;
+    padding: 1%;
+  }
+
+  .pokemon-movers {
+    max-width:15%;
+    height:auto;
+  }
+  .bottomPage {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:65%;
+  }

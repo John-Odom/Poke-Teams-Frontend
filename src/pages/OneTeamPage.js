@@ -24,7 +24,7 @@ class OneTeamPage extends Component {
                     <Navbar />
                     <h1>Click on Pokemon to open a new page with their information</h1>
                     <div id="teams-page">
-                    < PokemonTeam team={this.props.army} />
+                        < PokemonTeam team={this.props.army} />
                     </div>
                 </div>
                 
