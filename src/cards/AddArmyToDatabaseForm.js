@@ -10,9 +10,7 @@ const AddArmyToDatabaseForm = (props) => (
       <input onChange={(e)=>props.changeArmyName(e.target.value)} value={props.armyName} />
     <Button onClick={() => props.handleArmySubmit()} type='submit'>Submit</Button>
     </Form.Group>
-
     </div>
-    
   </Form>
   </div>
 )

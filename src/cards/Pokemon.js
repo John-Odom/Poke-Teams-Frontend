@@ -15,18 +15,16 @@ class Pokemon extends React.Component{
     }
 
     handlePokemonClick = (pokemon) => {
-        if(
+        if (
             window.location.href.includes(SITEURL + 'teams') || 
             window.location.href.includes(SITEURL + 'teams')
-            ){
+            ) {
             window.open(`https://pokemondb.net/pokedex/${pokemon.name}/`, '_blank')
         }
         else{
             if(this.props.pokemonArmy.includes(pokemon)) {
                 this.props.removeFromArmy(pokemon)
-            } else { 
-                this.addToArmy(pokemon)
-            }
+            } else this.addToArmy(pokemon)
         }
     }
 
