@@ -5,9 +5,9 @@ import {connect} from 'react-redux'
 const PokemonArmy = (props) => {
     return (
             <div className="pokemon-army">
-            {props.pokemonArmy.map( pokemon => {
-                return <Pokemon pokemon={pokemon}/>
-            })} 
+                {props.pokemonArmy.map( pokemon => {
+                    return <Pokemon pokemon={pokemon}/>
+                })} 
             </div>
     )
 }
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,null)(PokemonArmy)
+export default connect(mapStateToProps)(PokemonArmy)
