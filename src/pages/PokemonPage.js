@@ -28,8 +28,10 @@ class PokemonPage extends React.Component{
     handleArmySubmit = () =>{
         if(this.props.pokemonArmy.length===6 && this.state.armyName!==""){
             postArmyToDB(this.state.armyName, this.props.pokemonArmy)
+            .then(team => {
+                this.props.history.push(TEAMSPAGE)
+            })
             this.clearPage()
-            this.props.history.push(TEAMSPAGE)
         } else if (this.props.pokemonArmy.length===6) alert("you need a name dog")
           else alert("gotta have six mainnnn")
     }

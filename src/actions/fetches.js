@@ -21,9 +21,6 @@ export const postArmyToDB = (armyName, pokemonArmy) => {
         headers:{"Content-Type" : "application/json"},
         body: JSON.stringify (formData)
     }
-    fetch(DATABASE + "teams", reqObj)
+    return fetch(DATABASE + "teams", reqObj)
     .then(res=>res.json())
-    .then(team => {
-        alert(`You saved "${team.name}" to the database`)
-    })
 }

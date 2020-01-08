@@ -7,8 +7,6 @@ import charmander from '../images/charmander.png'
 import eevee from '../images/eevee.png'
 import chikorita from '../images/chikorita.png'
 import squirtle from '../images/squirtle.png'
-import grookey from '../images/grookey.png'
-import marill from '../images/marill.png'
 import {POKEMONPAGE} from '../routePaths'
 import {TweenMax, TimelineLite, Power3} from 'gsap'
 
@@ -33,7 +31,7 @@ const Home = () => {
         .to(eevee, 3, {x:"100%", ease:Power3.easeOut}, '-=3')
         .to(chikorita, 3, {x:"-200%", y:"200%", ease:Power3.easeOut}, '-=3')
         .to(squirtle, 3, {x:"200%", y:"200%", ease:Power3.easeOut}, '-=3')
-        .to(header, 1, {opacity:1, pointerEvents:'auto'})
+        .to(header, 1, {opacity:1, pointerEvents:'auto'}, '-=1')
 
     })
     
